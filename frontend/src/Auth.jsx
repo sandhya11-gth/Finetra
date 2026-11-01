@@ -48,9 +48,50 @@ export default function Auth() {
   return (
     <main className="auth-page">
       <section className="auth-card">
-        <div className="auth-brand">finetra<span>.</span></div>
+
+        {/* Finetra Brand */}
+        <div className="auth-brand">
+          <div className="auth-logo">
+            <svg viewBox="0 0 52 52" aria-hidden="true">
+              <defs>
+                <linearGradient id="authFTop" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#D9FF38" />
+                  <stop offset="100%" stopColor="#A7E52E" />
+                </linearGradient>
+                <linearGradient id="authFMid" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#C5F342" />
+                  <stop offset="100%" stopColor="#7B5BFF" />
+                </linearGradient>
+                <linearGradient id="authFBottom" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#D15CFF" />
+                  <stop offset="100%" stopColor="#875BFF" />
+                </linearGradient>
+              </defs>
+
+              <path
+                d="M13.5 9C15.5 6.1 18.7 4.5 22.4 4.5H46L39.2 13.8H16.8C13.6 13.8 11.4 12 13.5 9Z"
+                fill="url(#authFTop)"
+              />
+              <path
+                d="M10.5 21.5C12.6 18.5 15.8 16.8 19.5 16.8H39.5L32.7 26H13.8C10.5 26 8.3 24.6 10.5 21.5Z"
+                fill="url(#authFMid)"
+              />
+              <path
+                d="M6.7 34.2C8.8 31.2 11.8 29.5 15.4 29.5H27.5L20.6 38.8H9.8C6.5 38.8 4.5 37.4 6.7 34.2Z"
+                fill="url(#authFBottom)"
+              />
+            </svg>
+          </div>
+
+          <span className="auth-brand-name">
+            finetra<span className="auth-brand-dot">.</span>
+          </span>
+        </div>
+
         <p className="auth-eyebrow">YOUR FINANCIAL SPACE</p>
+
         <h1>{mode === "login" ? "Welcome back." : "A clearer start."}</h1>
+
         <p className="auth-subtitle">
           {mode === "login"
             ? "Sign in to continue your money story."
@@ -61,7 +102,9 @@ export default function Auth() {
           Continue with Google
         </button>
 
-        <div className="auth-divider"><span>or continue with email</span></div>
+        <div className="auth-divider">
+          <span>or continue with email</span>
+        </div>
 
         <form onSubmit={handleEmailAuth} className="auth-form">
           <label>
@@ -74,6 +117,7 @@ export default function Auth() {
               required
             />
           </label>
+
           <label>
             Password
             <input
@@ -85,6 +129,7 @@ export default function Auth() {
               required
             />
           </label>
+
           <button className="auth-submit" disabled={loading}>
             {loading
               ? "Please wait..."
@@ -94,15 +139,23 @@ export default function Auth() {
           </button>
         </form>
 
-        {message && <p className="auth-message" role="status">{message}</p>}
+        {message && (
+          <p className="auth-message" role="status">
+            {message}
+          </p>
+        )}
 
         <p className="auth-switch">
-          {mode === "login" ? "New to Finetra?" : "Already have an account?"}
+          {mode === "login"
+            ? "New to Finetra?"
+            : "Already have an account?"}
           {" "}
-          <button onClick={() => {
-            setMode(mode === "login" ? "signup" : "login");
-            setMessage("");
-          }}>
+          <button
+            onClick={() => {
+              setMode(mode === "login" ? "signup" : "login");
+              setMessage("");
+            }}
+          >
             {mode === "login" ? "Create account" : "Sign in"}
           </button>
         </p>

@@ -170,3 +170,33 @@
     padding: 28px 22px;
   }
 }
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  color: #29243b;
+  font-size: 27px;
+  font-weight: 750;
+  letter-spacing: -1.4px;
+}
+
+.auth-logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #343044, #211e30);
+  border: 1px solid rgba(255,255,255,.7);
+  box-shadow: 0 7px 20px rgba(139,99,246,.2);
+}
+
+.auth-logo svg {
+  width: 39px;
+  height: 39px;
+}
+
+.auth-brand-dot {
+  color: #c9f342;
+}
